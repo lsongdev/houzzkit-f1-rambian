@@ -15,7 +15,7 @@ Actions 云打包路线。
 | 型号 | Houzzkit F1 / SZZN RK3568-JL-RM01 |
 | 内存/eMMC | 4GB LPDDR4X / 三星 32GB eMMC |
 | 调试串口 | UART2（`serial@fe660000`，1500000） |
-| Zigbee | 主板 8pin 立式座外接模块，ttyS3（UART3） |
+| Zigbee | 一台 F1 V2 实测经 CH340 USB 转串口（`/dev/ttyUSB0`），见 [V2 硬件资源记录](docs/F1-V2-HARDWARE.md) |
 | 现有 bootchain | idbloader @ LBA 0x40 + U-Boot FIT @ LBA 0x4000（no-OPTEE） |
 | Recovery | 按住 Recovery 上电进 RockUSB LOADER |
 
