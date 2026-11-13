@@ -74,3 +74,25 @@ reboot
 ```
 
 `/boot/armbianEnv.txt` must contain `fdtfile=rk3568-jl-rm01.dtb`.
+
+## Optional DTB for F1 V2 with CH340 Zigbee
+
+Use `rk3568-jl-rm01-uart3-off.dtb` on the tested F1 V2 configuration
+with Zigbee over CH340 when UART3 is unused. It disables UART3 so the
+Ethernet PHY can use GPIO3_B7 for reset. Both Ethernet links and the
+CH340 Zigbee coordinator worked on `6.18.59-ophub` with this DTB.
+
+Copy the variant alongside the default DTB:
+
+```sh
+install -m 0644 rk3568-jl-rm01-uart3-off.dtb /boot/dtb/rockchip/
+```
+
+Set `fdtfile=rockchip/rk3568-jl-rm01-uart3-off.dtb` in
+`/boot/armbianEnv.txt` and reboot. To return to the default, set
+`fdtfile=rockchip/rk3568-jl-rm01.dtb` and reboot.
+
+To rebuild the variant, preprocess and compile
+`rk3568-jl-rm01-uart3-off.dts` with the same kernel tree and flags
+shown above. See the [F1 V2 hardware notes](../../docs/F1-V2-HARDWARE.md)
+for the UART3 loopback and pin assignment results.

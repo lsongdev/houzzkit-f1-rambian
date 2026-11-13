@@ -1,0 +1,8 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+
+#include "rk3568-jl-rm01.dts"
+
+&uart3 {
+	/* Keep GPIO3_B7 available for the Ethernet PHY reset. */
+	status = "disabled";
+};
